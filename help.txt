@@ -1,0 +1,38 @@
+A script that can generate tree structure report of any given folder and verify the current structure of any folder with given report.
+
+* This script can run as both executable with manual inputs and as a command line utility with user arguments.
+
+1. To run this script manually:
+		python "<path to main.py>"
+
+2. To run this script as cmd utility:
+		python "<path to main.py>" <operation> "<path flags & paths>" <optional flags>
+		
+		Compulsory flags:
+			<operation> = c or v (c = create | v = verify)
+			-i "path_to_input_folder" = set input folder path
+			
+		Optional flags:
+			-r "path_to_report_file" = set report file path (if not given input path is taken as default for report path)
+			-f = set force flag (used in create mode, to overwrite any existing report files without user prompt)
+		
+		Note:
+			By default report name: "Integrity_report.txt"
+			You can use -r flag to give custom output file name: "output_path\custom_name.txt" (.txt extension is compulsory)
+
+
+Examples:
+	1. 	To create a report file in the same input directory:
+				python main.py c -i "input_folder_path"
+				
+	2. 	To create a report file in the same input directory & overwrite any existing report:
+				python main.py c -i "input_folder_path" -f
+				
+	3. 	To create a report file in custom path:
+				python main.py c -i "input_folder_path" -r "report_file_path"
+				
+	4. 	To verify a folder structure with a report file present within the input folder:
+				python main.py v -i "input_folder_path"
+
+	5.	To verify a folder structure with custom report file:
+				python main.py v -i "input_folder_path" -r "report_file_path"
